@@ -2,7 +2,7 @@ name: Deploy JS Projects on Surge
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
@@ -11,14 +11,14 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-        
+
       - name: Node Setup
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          
+
       - name: Install Surge
         run: npm i -g surge
-        
+
       - name: Deploy to Surge
-        run: surge deploy ./ fwdp-jsprojects.surge.sh --token ${{secrets.SURGE_TOKEN}}
+        run: surge ./ fwdp-jsprojects.surge.sh --token ${{secrets.SURGE_TOKEN}}
