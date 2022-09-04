@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>HTML Form Validation</title>
+</head>
+
+<body>
+    <form id="form">
+        <h1>SignUp Form</h1>
+        <div class="form-control">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter name">
+            <small>Dummy Error Message</small>
+        </div>
+        <div class="form-control">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Enter email">
+            <small>Dummy Error Message</small>
+        </div>
+        <div class="form-control">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter password">
+            <small>Dummy Error Message</small>
+        </div>
+        <div class="form-control">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Enter password again">
+            <small>Dummy Error Message</small>
+        </div>
+        <input type="submit" value="Register" />
+    </form>
+    <script src="./script.js"></script>
+</body>
+
+</html>
