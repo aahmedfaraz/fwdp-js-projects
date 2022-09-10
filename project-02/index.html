@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Exchange Rate Calculator</title>
+</head>
+
+<body>
+    <div class="card-container">
+        <div class="image-container">
+            <img id="source-flag" src="./assets/images/currency.png" alt="currency-image">
+        </div>
+        <div class="calculator">
+            <h1>Exchange Rate Calculator</h1>
+            <p>Current Rate: <span class="highlight">1 <span id="rate-source-curr">USD</span></span> equals <span
+                    class="highlight"><span id="rate-target-amount">0.00</span>
+                    <span id="rate-target-curr">PKR</span></span>
+            </p>
+            <div class="currency-container">
+                <img width="70px" src="https://countryflagsapi.com/svg/USA" alt="source-curr-image">
+                <select id="source-currency">
+                    <option value="AED" data-iso-code="ARE">AED - UAE Dirham - United Arab Emirates</option>
+                    <option value="AFN" data-iso-code="AFG">AFN - Afghan Afghani - Afghanistan</option>
+                    <option value="ALL" data-iso-code="ALB">ALL - Lek - Albania</option>
+                    <option value="AMD" data-iso-code="ARM">AMD - Armenian Dram - Armenia</option>
+                    <option value="ANG" data-iso-code="CUW">ANG - Netherlands Antillean Guilder - Curacao</option>
+                    <option value="ANG" data-iso-code="ANT">ANG - Netherlands Antillean Guilder - Netherlands Antilles
+                        Guilder</option>
+                    <option value="ANG" data-iso-code="SXM">ANG - Netherlands Antillean Guilder - Sint Maarten</option>
+                    <option value="AOA" data-iso-code="AGO">AOA - Kwanza - Angola</option>
+                    <option value="ARS" data-iso-code="ARG">ARS - Argentine Peso - Argentina</option>
+                    <option value="AUD" data-iso-code="AUS">AUD - Australian Dollar - Australia</option>
+                    <option value="AUD" data-iso-code="CXR">AUD - Australian Dollar - Christmas Island</option>
+                    <option value="AUD" data-iso-code="CCK">AUD - Australian Dollar - Cocos Islands</option>
+                    <option value="AUD" data-iso-code="KIR">AUD - Australian Dollar - Kiribati</option>
+                    <option value="AUD" data-iso-code="NRU">AUD - Australian Dollar - Nauru</option>
+                    <option value="AUD" data-iso-code="TUV">AUD - Australian Dollar - Tuvalu</option>
+                    <option value="AWG" data-iso-code="ABW">AWG - Aruban Florin - Aruba</option>
+                    <option value="AZN" data-iso-code="AZE">AZN - Azerbaijanian Manat - Azerbaijan</option>
+                    <option value="BAM" data-iso-code="BIH">BAM - Convertible Marks - Bosnia and Herzegovina</option>
+                    <option value="BBD" data-iso-code="BRB">BBD - Barbados Dollar - Barbados</option>
+                    <option value="BDT" data-iso-code="BGD">BDT - Taka - Bangladesh</option>
+                    <option value="BGN" data-iso-code="BGR">BGN - Bulgarian Lev - Bulgaria</option>
+                    <option value="BHD" data-iso-code="BHR">BHD - Bahraini Dinar - Bahrain</option>
+                    <option value="BIF" data-iso-code="BDI">BIF - Burundi Franc - Burundi</option>
+                    <option value="BMD" data-iso-code="BMU">BMD - Bermudian Dollar - Bermuda</option>
+                    <option value="BND" data-iso-code="BRN">BND - Brunei Dollar - Brunei</option>
+                    <option value="BOB" data-iso-code="BOL">BOB - Boliviano - Bolivia</option>
+                    <option value="BRL" data-iso-code="BRA">BRL - Brazilian Real - Brazil</option>
+                    <option value="BSD" data-iso-code="BHS">BSD - Bahamian Dollar - Bahamas</option>
+                    <option value="BTN" data-iso-code="BTN">BTN - Ngultrum - Bhutan</option>
+                    <option value="BWP" data-iso-code="BWA">BWP - Pula - Botswana</option>
+                    <option value="BYN" data-iso-code="BLR">BYN - Belarussian Ruble - Belarus</option>
+                    <option value="BZD" data-iso-code="BLZ">BZD - Belize Dollar - Belize</option>
+                    <option value="CAD" data-iso-code="CAN">CAD - Canadian Dollar - Canada</option>
+                    <option value="CDF" data-iso-code="COD">CDF - Congolese Franc - Democratic Republic of the Congo
+                    </option>
+                    <option value="CHF" data-iso-code="LIE">CHF - Swiss Franc - Liechtenstein</option>
+                    <option value="CHF" data-iso-code="CHE">CHF - Swiss Franc - Switzerland</option>
+                    <option value="CLP" data-iso-code="CHL">CLP - peso - Chile</option>
+                    <option value="CNY" data-iso-code="CHN">CNY - Yuan Renminbi - China</option>
+                    <option value="COP" data-iso-code="COL">COP - Colombian Peso - Colombia</option>
+                    <option value="CRC" data-iso-code="CRI">CRC - Costa Rican Colon - Costa Rica</option>
+                    <option value="CUC" data-iso-code="CUB">CUC - Peso Convertible - Cuba</option>
+                    <option value="CVE" data-iso-code="CPV">CVE - Cape Verde Escudo - Cape Verde</option>
+                    <option value="CZK" data-iso-code="CZE">CZK - Czech Koruna - Czech Republic</option>
+                    <option value="DJF" data-iso-code="DJI">DJF - Djibouti Franc - Djibouti</option>
+                    <option value="DKK" data-iso-code="DNK">DKK - Danish Krone - Denmark</option>
+                    <option value="DKK" data-iso-code="FRO">DKK - Danish Krone - Faroe Islands</option>
+                    <option value="DKK" data-iso-code="GRL">DKK - Danish Krone - Greenland</option>
+                    <option value="DOP" data-iso-code="DOM">DOP - Dominican Peso - Dominican Republic</option>
+                    <option value="DZD" data-iso-code="DZA">DZD - Algerian Dinar - Algeria</option>
+                    <option value="EGP" data-iso-code="EGY">EGP - Egyptian Pound - Egypt</option>
+                    <option value="ERN" data-iso-code="ERI">ERN - Nakfa - Eritrea</option>
+                    <option value="ETB" data-iso-code="ETH">ETB - Ethiopian Birr - Ethiopia</option>
+                    <option value="EUR" data-iso-code="AND">EUR - Euro - Andorra</option>
+                    <option value="EUR" data-iso-code="AUT">EUR - euro - Austria</option>
+                    <option value="EUR" data-iso-code="BEL">EUR - euro - Belgium</option>
+                    <option value="EUR" data-iso-code="CYP">EUR - Euro - Cyprus</option>
+                    <option value="EUR" data-iso-code="FIN">EUR - Euro - Finland</option>
+                    <option value="EUR" data-iso-code="FRA">EUR - Euro - France</option>
+                    <option value="EUR" data-iso-code="DEU">EUR - Euro - Germany</option>
+                    <option value="EUR" data-iso-code="GRC">EUR - Euro - Greece</option>
+                    <option value="EUR" data-iso-code="IRL">EUR - Euro - Ireland</option>
+                    <option value="EUR" data-iso-code="ITA">EUR - Euro - Italy</option>
+                    <option value="EUR" data-iso-code="XKX">EUR - Euro - Kosovo</option>
+                    <option value="EUR" data-iso-code="LUX">EUR - Euro - Luxembourg</option>
+                    <option value="EUR" data-iso-code="MLT">EUR - Euro - Malta</option>
+                    <option value="EUR" data-iso-code="MYT">EUR - Euro - Mayotte</option>
+                    <option value="EUR" data-iso-code="MCO">EUR - Euro - Monaco</option>
+                    <option value="EUR" data-iso-code="MNE">EUR - Euro - Montenegro</option>
+                    <option value="EUR" data-iso-code="NLD">EUR - Euro - Netherlands</option>
+                    <option value="EUR" data-iso-code="PRT">EUR - Euro - Portugal</option>
+                    <option value="EUR" data-iso-code="REU">EUR - Euro - Reunion</option>
+                    <option value="EUR" data-iso-code="BLM">EUR - Euro - Saint Barthelemy</option>
+                    <option value="EUR" data-iso-code="MAF">EUR - Euro - Saint Martin</option>
+                    <option value="EUR" data-iso-code="SPM">EUR - Euro - Saint Pierre and Miquelon</option>
+                    <option value="EUR" data-iso-code="SMR">EUR - Euro - San Marino</option>
+                    <option value="EUR" data-iso-code="SVK">EUR - Euro - Slovakia</option>
+                    <option value="EUR" data-iso-code="SVN">EUR - Euro - Slovenia</option>
+                    <option value="EUR" data-iso-code="ESP">EUR - Euro - Spain</option>
+                    <option value="EUR" data-iso-code="VAT">EUR - Euro - Vatican City</option>
+                    <option value="FJD" data-iso-code="FJI">FJD - Fiji Dollar - Fiji</option>
+                    <option value="FKP" data-iso-code="FLK">FKP - Falkland Islands Pound - Falkland Islands</option>
+                    <option value="GBP" data-iso-code="GGY">GBP - Pound Sterling - Guernsey</option>
+                    <option value="GBP" data-iso-code="IMN">GBP - Pound Sterling - Isle of Man</option>
+                    <option value="GBP" data-iso-code="JEY">GBP - Pound Sterling - Jersey</option>
+                    <option value="GBP" data-iso-code="GBR">GBP - Pound Sterling - United Kingdom</option>
+                    <option value="GEL" data-iso-code="GEO">GEL - Lari - Georgia</option>
+                    <option value="GHS" data-iso-code="GHA">GHS - Cedi - Ghana</option>
+                    <option value="GIP" data-iso-code="GIB">GIP - Gibraltar Pound - Gibraltar</option>
+                    <option value="GMD" data-iso-code="GMB">GMD - Dalasi - Gambia</option>
+                    <option value="GNF" data-iso-code="GIN">GNF - Guinea Franc - Guinea</option>
+                    <option value="GTQ" data-iso-code="GTM">GTQ - Quetzal - Guatemala</option>
+                    <option value="GYD" data-iso-code="GUY">GYD - Guyana Dollar - Guyana</option>
+                    <option value="HKD" data-iso-code="HKG">HKD - Hong Kong Dollar - Hong Kong</option>
+                    <option value="HNL" data-iso-code="HND">HNL - Lempira - Honduras</option>
+                    <option value="HRK" data-iso-code="HRV">HRK - Croatian Kuna - Croatia</option>
+                    <option value="HTG" data-iso-code="HTI">HTG - Gourde - Haiti</option>
+                    <option value="HUF" data-iso-code="HUN">HUF - Forint - Hungary</option>
+                    <option value="IDR" data-iso-code="IDN">IDR - Rupiah - Indonesia</option>
+                    <option value="ILS" data-iso-code="ISR">ILS - New Israeli Sheqel - Israel</option>
+                    <option value="INR" data-iso-code="IND">INR - Indian Rupee - India</option>
+                    <option value="IQD" data-iso-code="IRQ">IQD - Iraqi Dinar - Iraq</option>
+                    <option value="IRR" data-iso-code="IRN">IRR - Iranian Rial - Iran</option>
+                    <option value="ISK" data-iso-code="ISL">ISK - Iceland Krona - Iceland</option>
+                    <option value="JMD" data-iso-code="JAM">JMD - Jamaican Dollar - Jamaica</option>
+                    <option value="JOD" data-iso-code="JOR">JOD - Jordanian Dinar - Jordan</option>
+                    <option value="JPY" data-iso-code="JPN">JPY - Yen - Japan</option>
+                    <option value="KES" data-iso-code="KEN">KES - Kenyan Shilling - Kenya</option>
+                    <option value="KGS" data-iso-code="KGZ">KGS - Som - Kyrgyzstan</option>
+                    <option value="KHR" data-iso-code="KHM">KHR - Riel - Cambodia</option>
+                    <option value="KMF" data-iso-code="COM">KMF - Comoro Franc - Comoros</option>
+                    <option value="KPW" data-iso-code="PRK">KPW - North Korean Won - North Korea</option>
+                    <option value="KRW" data-iso-code="KOR">KRW - Won - South Korea</option>
+                    <option value="KWD" data-iso-code="KWT">KWD - Kuwaiti Dinar - Kuwait</option>
+                    <option value="KYD" data-iso-code="CYM">KYD - Cayman Islands Dollar - Cayman Islands</option>
+                    <option value="KZT" data-iso-code="KAZ">KZT - Tenge - Kazakhstan</option>
+                    <option value="LAK" data-iso-code="LAO">LAK - Kip - Laos</option>
+                    <option value="LBP" data-iso-code="LBN">LBP - Lebanese Pound - Lebanon</option>
+                    <option value="LKR" data-iso-code="LKA">LKR - Sri Lanka Rupee - Sri Lanka</option>
+                    <option value="LRD" data-iso-code="LBR">LRD - Liberian Dollar - Liberia</option>
+                    <option value="LSL" data-iso-code="LSO">LSL - Loti - Lesotho</option>
+                    <option value="LTL" data-iso-code="LTU">LTL - Lithuanian Litas - Lithuania</option>
+                    <option value="LVL" data-iso-code="LVA">LVL - Latvian Lats - Latvia</option>
+                    <option value="LYD" data-iso-code="LBY">LYD - Libyan Dinar - Libya</option>
+                    <option value="MAD" data-iso-code="MAR">MAD - Moroccan Dirham - Morocco</option>
+                    <option value="MAD" data-iso-code="ESH">MAD - Moroccan dirham - Western Sahara</option>
+                    <option value="MDL" data-iso-code="MDA">MDL - Moldovan Leu - Moldova</option>
+                    <option value="MGA" data-iso-code="MDG">MGA - Malagasy Ariary - Madagascar</option>
+                    <option value="MKD" data-iso-code="MKD">MKD - Denar - Macedonia</option>
+                    <option value="MMK" data-iso-code="MMR">MMK - Kyat - Myanmar</option>
+                    <option value="MNT" data-iso-code="MNG">MNT - Tugrik - Mongolia</option>
+                    <option value="MOP" data-iso-code="MAC">MOP - Pataca - Macau</option>
+                    <option value="MRO" data-iso-code="MRT">MRO - Ouguiya - Mauritania</option>
+                    <option value="MUR" data-iso-code="MUS">MUR - Mauritius Rupee - Mauritius</option>
+                    <option value="MVR" data-iso-code="MDV">MVR - Rufiyaa - Maldives</option>
+                    <option value="MWK" data-iso-code="MWI">MWK - Kwacha - Malawi</option>
+                    <option value="MXN" data-iso-code="MEX">MXN - Mexican Peso - Mexico</option>
+                    <option value="MYR" data-iso-code="MYS">MYR - Malaysian Ringgit - Malaysia</option>
+                    <option value="MZN" data-iso-code="MOZ">MZN - Metical - Mozambique</option>
+                    <option value="NAD" data-iso-code="NAM">NAD - Namibia Dollar - Namibia</option>
+                    <option value="NGN" data-iso-code="NGA">NGN - Naira - Nigeria</option>
+                    <option value="NIO" data-iso-code="NIC">NIO - Cordoba Oro - Nicaragua</option>
+                    <option value="NOK" data-iso-code="NOR">NOK - Norwegian Krone - Norway</option>
+                    <option value="NOK" data-iso-code="SJM">NOK - Norway Kroner - Svalbard and Jan Mayen</option>
+                    <option value="NPR" data-iso-code="NPL">NPR - Nepalese Rupee - Nepal</option>
+                    <option value="NZD" data-iso-code="COK">NZD - New Zealand Dollar - Cook Islands</option>
+                    <option value="NZD" data-iso-code="NZL">NZD - New Zealand Dollar - New Zealand</option>
+                    <option value="NZD" data-iso-code="NIU">NZD - New Zealand Dollar - Niue</option>
+                    <option value="NZD" data-iso-code="PCN">NZD - New Zealand Dollar - Pitcairn</option>
+                    <option value="NZD" data-iso-code="TKL">NZD - New Zealand Dollar - Tokelau</option>
+                    <option value="OMR" data-iso-code="OMN">OMR - Rial Omani - Oman</option>
+                    <option value="PAB" data-iso-code="PAN">PAB - Balboa - Panama</option>
+                    <option value="PEN" data-iso-code="PER">PEN - Nuevo Sol - Peru</option>
+                    <option value="PGK" data-iso-code="PNG">PGK - Kina - Papua New Guinea</option>
+                    <option value="PHP" data-iso-code="PHL">PHP - Philippine Peso - Philippines</option>
+                    <option value="PKR" data-iso-code="PAK">PKR - Pakistan Rupee - Pakistan</option>
+                    <option value="PLN" data-iso-code="POL">PLN - Zloty - Poland</option>
+                    <option value="PYG" data-iso-code="PRY">PYG - Guarani - Paraguay</option>
+                    <option value="QAR" data-iso-code="QAT">QAR - Qatari Rial - Qatar</option>
+                    <option value="RON" data-iso-code="ROU">RON - New Ley - Romania</option>
+                    <option value="RSD" data-iso-code="SRB">RSD - Serbian Dinar - Serbia</option>
+                    <option value="RUB" data-iso-code="RUS">RUB - Russian Ruble - Russia</option>
+                    <option value="RWF" data-iso-code="RWA">RWF - Rwanda Franc - Rwanda</option>
+                    <option value="SAR" data-iso-code="SAU">SAR - Saudi Riyal - Saudi Arabia</option>
+                    <option value="SBD" data-iso-code="SLB">SBD - Solomon Islans Dollar - Solomon Islands</option>
+                    <option value="SCR" data-iso-code="SYC">SCR - Seychelles Rupee - Seychelles</option>
+                    <option value="SDG" data-iso-code="SDN">SDG - Sudanese Pound - Sudan</option>
+                    <option value="SEK" data-iso-code="SWE">SEK - Swedish Krona - Sweden</option>
+                    <option value="SGD" data-iso-code="SGP">SGD - Singapore Dollar - Singapore</option>
+                    <option value="SHP" data-iso-code="SHN">SHP - Saint Helena Pound - Saint Helena</option>
+                    <option value="SLL" data-iso-code="SLE">SLL - Leone - Sierra Leone</option>
+                    <option value="SOS" data-iso-code="SOM">SOS - Somali Shilling - Somalia</option>
+                    <option value="SRD" data-iso-code="SUR">SRD - Surinamese Dollar - Suriname</option>
+                    <option value="STD" data-iso-code="STP">STD - Dobra - Sao Tome and Principe</option>
+                    <option value="SVC" data-iso-code="SLV">SVC - El Salvador Colon - El Salvador</option>
+                    <option value="SYP" data-iso-code="SYR">SYP - Syrian Pound - Syria</option>
+                    <option value="SZL" data-iso-code="SWZ">SZL - Lilangeni - Swaziland</option>
+                    <option value="THB" data-iso-code="THA">THB - Baht - Thailand</option>
+                    <option value="TJS" data-iso-code="TJK">TJS - Somoni - Tajikistan</option>
+                    <option value="TMT" data-iso-code="TKM">TMT - Manat - Turkmenistan</option>
+                    <option value="TND" data-iso-code="TUN">TND - Tunisian Dinar - Tunisia</option>
+                    <option value="TOP" data-iso-code="TON">TOP - Paanga - Tonga</option>
+                    <option value="TRY" data-iso-code="TUR">TRY - Turkish Lira - Turkey</option>
+                    <option value="TTD" data-iso-code="TTO">TTD - Trinidad and Tobago Dollar - Trinidad and Tobago
+                    </option>
+                    <option value="TWD" data-iso-code="TWN">TWD - New Taiwan Dollar - Taiwan</option>
+                    <option value="TZS" data-iso-code="TZA">TZS - Tanzanian Shilling - Tanzania</option>
+                    <option value="UAH" data-iso-code="UKR">UAH - Hryvnia - Ukraine</option>
+                    <option value="UGX" data-iso-code="UGA">UGX - Uganda Shilling - Uganda</option>
+                    <option value="USD" data-iso-code="ASM">USD - US Dollar - American Samoa</option>
+                    <option value="USD" data-iso-code="IOT">USD - US Dollar - British Indian Ocean Territory</option>
+                    <option value="USD" data-iso-code="VGB">USD - US Dollar - British Virgin Islands</option>
+                    <option value="USD" data-iso-code="TLS">USD - US Dollar - East Timor</option>
+                    <option value="USD" data-iso-code="ECU">USD - US Dollar - Ecuador</option>
+                    <option value="USD" data-iso-code="GUM">USD - US Dollar - Guam</option>
+                    <option value="USD" data-iso-code="MHL">USD - US Dollar - Marshall Islands</option>
+                    <option value="USD" data-iso-code="FSM">USD - US Dollar - Micronesia</option>
+                    <option value="USD" data-iso-code="MNP">USD - US Dollar - Northern Mariana Islands</option>
+                    <option value="USD" data-iso-code="PLW">USD - US Dollar - Palau</option>
+                    <option value="USD" data-iso-code="PRI">USD - US Dollar - Puerto Rico</option>
+                    <option value="USD" data-iso-code="TCA">USD - US Dollar - Turks and Caicos Islands</option>
+                    <option value="USD" data-iso-code="VIR">USD - US Dollar - U.S. Virgin Islands</option>
+                    <option value="USD" data-iso-code="USA" selected>USD - US Dollar - United States</option>
+                    <option value="UYU" data-iso-code="URY">UYU - Peso Uruguayo - Uruguay</option>
+                    <option value="UZS" data-iso-code="UZB">UZS - Uzbekistan Sum - Uzbekistan</option>
+                    <option value="VEF" data-iso-code="VEN">VEF - Bolivar - Venezuela</option>
+                    <option value="VND" data-iso-code="VNM">VND - Dong - Vietnam</option>
+                    <option value="VUV" data-iso-code="VUT">VUV - Vatu - Vanuatu</option>
+                    <option value="WST" data-iso-code="WSM">WST - Tala - Samoa</option>
+                    <option value="XAF" data-iso-code="CMR">XAF - CFA Franc BEAC - Cameroon</option>
+                    <option value="XAF" data-iso-code="CAF">XAF - CFA Franc BEAC - Central African Republic</option>
+                    <option value="XAF" data-iso-code="TCD">XAF - CFA Franc BEAC - Chad</option>
+                    <option value="XAF" data-iso-code="GNQ">XAF - CFA Franc BEAC - Equatorial Guinea</option>
+                    <option value="XAF" data-iso-code="GAB">XAF - CFA Franc BEAC - Gabon</option>
+                    <option value="XAF" data-iso-code="COG">XAF - CFA Franc BEAC - Republic of the Congo</option>
+                    <option value="XCD" data-iso-code="AIA">XCD - East Caribbean Dollar - Anguilla</option>
+                    <option value="XCD" data-iso-code="ATG">XCD - East Caribbean Dollar - Antigua and Barbuda</option>
+                    <option value="XCD" data-iso-code="DMA">XCD - East Caribbean Dollar - Dominica</option>
+                    <option value="XCD" data-iso-code="GRD">XCD - East Caribbean Dollar - Grenada</option>
+                    <option value="XCD" data-iso-code="MSR">XCD - East Caribbean Dollar - Montserrat</option>
+                    <option value="XCD" data-iso-code="KNA">XCD - East Caribbean Dollar - Saint Kitts and Nevis</option>
+                    <option value="XCD" data-iso-code="LCA">XCD - East Caribbean Dollar - Saint Lucia</option>
+                    <option value="XCD" data-iso-code="VCT">XCD - East Caribbean Dollar - Saint Vincent and the
+                        Grenadines</option>
+                    <option value="XOF" data-iso-code="BEN">XOF - CFA Franc BCEAO - Benin</option>
+                    <option value="XOF" data-iso-code="BFA">XOF - CFA Franc BCEAO - Burkina Faso</option>
+                    <option value="XOF" data-iso-code="GNB">XOF - CFA Franc BCEAO - Guinea-Bissau</option>
+                    <option value="XOF" data-iso-code="CIV">XOF - CFA Franc BCEAO - Ivory Coast</option>
+                    <option value="XOF" data-iso-code="MLI">XOF - CFA Franc BCEAO - Mali</option>
+                    <option value="XOF" data-iso-code="NER">XOF - CFA Franc BCEAO - Niger</option>
+                    <option value="XOF" data-iso-code="SEN">XOF - CFA Franc BCEAO - Senegal</option>
+                    <option value="XOF" data-iso-code="TGO">XOF - CFA Franc BCEAO - Togo</option>
+                    <option value="XPF" data-iso-code="PYF">XPF - CFP Franc - French Polynesia</option>
+                    <option value="XPF" data-iso-code="NCL">XPF - CFP Franc - New Caledonia</option>
+                    <option value="XPF" data-iso-code="WLF">XPF - CFP Franc - Wallis and Futuna</option>
+                    <option value="YER" data-iso-code="YEM">YER - Yemeni Rial - Yemen</option>
+                    <option value="ZAR" data-iso-code="ZAF">ZAR - Rand - South Africa</option>
+                    <option value="ZMW" data-iso-code="ZMB">ZMW - Zambian Kwacha - Zambia</option>
+                    <option value="ZWL" data-iso-code="ZWE">ZWL - Zimbabwe Dollar - Zimbabwe</option>
+                </select>
+                <input type="number" id="source-currency-amount" placeholder="1">
+            </div>
+            <button id="swap" class="icon"><i class="fa-solid fa-rotate"></i></button>
+            <div class="currency-container">
+                <img id="target-flag" width="70px" src="https://countryflagsapi.com/svg/PAK" alt="target-curr-image">
+                <select id="target-currency">
+                    <option value="AED" data-iso-code="ARE">AED - UAE Dirham - United Arab Emirates</option>
+                    <option value="AFN" data-iso-code="AFG">AFN - Afghan Afghani - Afghanistan</option>
+                    <option value="ALL" data-iso-code="ALB">ALL - Lek - Albania</option>
+                    <option value="AMD" data-iso-code="ARM">AMD - Armenian Dram - Armenia</option>
+                    <option value="ANG" data-iso-code="CUW">ANG - Netherlands Antillean Guilder - Curacao</option>
+                    <option value="ANG" data-iso-code="ANT">ANG - Netherlands Antillean Guilder - Netherlands Antilles
+                        Guilder</option>
+                    <option value="ANG" data-iso-code="SXM">ANG - Netherlands Antillean Guilder - Sint Maarten</option>
+                    <option value="AOA" data-iso-code="AGO">AOA - Kwanza - Angola</option>
+                    <option value="ARS" data-iso-code="ARG">ARS - Argentine Peso - Argentina</option>
+                    <option value="AUD" data-iso-code="AUS">AUD - Australian Dollar - Australia</option>
+                    <option value="AUD" data-iso-code="CXR">AUD - Australian Dollar - Christmas Island</option>
+                    <option value="AUD" data-iso-code="CCK">AUD - Australian Dollar - Cocos Islands</option>
+                    <option value="AUD" data-iso-code="KIR">AUD - Australian Dollar - Kiribati</option>
+                    <option value="AUD" data-iso-code="NRU">AUD - Australian Dollar - Nauru</option>
+                    <option value="AUD" data-iso-code="TUV">AUD - Australian Dollar - Tuvalu</option>
+                    <option value="AWG" data-iso-code="ABW">AWG - Aruban Florin - Aruba</option>
+                    <option value="AZN" data-iso-code="AZE">AZN - Azerbaijanian Manat - Azerbaijan</option>
+                    <option value="BAM" data-iso-code="BIH">BAM - Convertible Marks - Bosnia and Herzegovina</option>
+                    <option value="BBD" data-iso-code="BRB">BBD - Barbados Dollar - Barbados</option>
+                    <option value="BDT" data-iso-code="BGD">BDT - Taka - Bangladesh</option>
+                    <option value="BGN" data-iso-code="BGR">BGN - Bulgarian Lev - Bulgaria</option>
+                    <option value="BHD" data-iso-code="BHR">BHD - Bahraini Dinar - Bahrain</option>
+                    <option value="BIF" data-iso-code="BDI">BIF - Burundi Franc - Burundi</option>
+                    <option value="BMD" data-iso-code="BMU">BMD - Bermudian Dollar - Bermuda</option>
+                    <option value="BND" data-iso-code="BRN">BND - Brunei Dollar - Brunei</option>
+                    <option value="BOB" data-iso-code="BOL">BOB - Boliviano - Bolivia</option>
+                    <option value="BRL" data-iso-code="BRA">BRL - Brazilian Real - Brazil</option>
+                    <option value="BSD" data-iso-code="BHS">BSD - Bahamian Dollar - Bahamas</option>
+                    <option value="BTN" data-iso-code="BTN">BTN - Ngultrum - Bhutan</option>
+                    <option value="BWP" data-iso-code="BWA">BWP - Pula - Botswana</option>
+                    <option value="BYN" data-iso-code="BLR">BYN - Belarussian Ruble - Belarus</option>
+                    <option value="BZD" data-iso-code="BLZ">BZD - Belize Dollar - Belize</option>
+                    <option value="CAD" data-iso-code="CAN">CAD - Canadian Dollar - Canada</option>
+                    <option value="CDF" data-iso-code="COD">CDF - Congolese Franc - Democratic Republic of the Congo
+                    </option>
+                    <option value="CHF" data-iso-code="LIE">CHF - Swiss Franc - Liechtenstein</option>
+                    <option value="CHF" data-iso-code="CHE">CHF - Swiss Franc - Switzerland</option>
+                    <option value="CLP" data-iso-code="CHL">CLP - peso - Chile</option>
+                    <option value="CNY" data-iso-code="CHN">CNY - Yuan Renminbi - China</option>
+                    <option value="COP" data-iso-code="COL">COP - Colombian Peso - Colombia</option>
+                    <option value="CRC" data-iso-code="CRI">CRC - Costa Rican Colon - Costa Rica</option>
+                    <option value="CUC" data-iso-code="CUB">CUC - Peso Convertible - Cuba</option>
+                    <option value="CVE" data-iso-code="CPV">CVE - Cape Verde Escudo - Cape Verde</option>
+                    <option value="CZK" data-iso-code="CZE">CZK - Czech Koruna - Czech Republic</option>
+                    <option value="DJF" data-iso-code="DJI">DJF - Djibouti Franc - Djibouti</option>
+                    <option value="DKK" data-iso-code="DNK">DKK - Danish Krone - Denmark</option>
+                    <option value="DKK" data-iso-code="FRO">DKK - Danish Krone - Faroe Islands</option>
+                    <option value="DKK" data-iso-code="GRL">DKK - Danish Krone - Greenland</option>
+                    <option value="DOP" data-iso-code="DOM">DOP - Dominican Peso - Dominican Republic</option>
+                    <option value="DZD" data-iso-code="DZA">DZD - Algerian Dinar - Algeria</option>
+                    <option value="EGP" data-iso-code="EGY">EGP - Egyptian Pound - Egypt</option>
+                    <option value="ERN" data-iso-code="ERI">ERN - Nakfa - Eritrea</option>
+                    <option value="ETB" data-iso-code="ETH">ETB - Ethiopian Birr - Ethiopia</option>
+                    <option value="EUR" data-iso-code="AND">EUR - Euro - Andorra</option>
+                    <option value="EUR" data-iso-code="AUT">EUR - euro - Austria</option>
+                    <option value="EUR" data-iso-code="BEL">EUR - euro - Belgium</option>
+                    <option value="EUR" data-iso-code="CYP">EUR - Euro - Cyprus</option>
+                    <option value="EUR" data-iso-code="FIN">EUR - Euro - Finland</option>
+                    <option value="EUR" data-iso-code="FRA">EUR - Euro - France</option>
+                    <option value="EUR" data-iso-code="DEU">EUR - Euro - Germany</option>
+                    <option value="EUR" data-iso-code="GRC">EUR - Euro - Greece</option>
+                    <option value="EUR" data-iso-code="IRL">EUR - Euro - Ireland</option>
+                    <option value="EUR" data-iso-code="ITA">EUR - Euro - Italy</option>
+                    <option value="EUR" data-iso-code="XKX">EUR - Euro - Kosovo</option>
+                    <option value="EUR" data-iso-code="LUX">EUR - Euro - Luxembourg</option>
+                    <option value="EUR" data-iso-code="MLT">EUR - Euro - Malta</option>
+                    <option value="EUR" data-iso-code="MYT">EUR - Euro - Mayotte</option>
+                    <option value="EUR" data-iso-code="MCO">EUR - Euro - Monaco</option>
+                    <option value="EUR" data-iso-code="MNE">EUR - Euro - Montenegro</option>
+                    <option value="EUR" data-iso-code="NLD">EUR - Euro - Netherlands</option>
+                    <option value="EUR" data-iso-code="PRT">EUR - Euro - Portugal</option>
+                    <option value="EUR" data-iso-code="REU">EUR - Euro - Reunion</option>
+                    <option value="EUR" data-iso-code="BLM">EUR - Euro - Saint Barthelemy</option>
+                    <option value="EUR" data-iso-code="MAF">EUR - Euro - Saint Martin</option>
+                    <option value="EUR" data-iso-code="SPM">EUR - Euro - Saint Pierre and Miquelon</option>
+                    <option value="EUR" data-iso-code="SMR">EUR - Euro - San Marino</option>
+                    <option value="EUR" data-iso-code="SVK">EUR - Euro - Slovakia</option>
+                    <option value="EUR" data-iso-code="SVN">EUR - Euro - Slovenia</option>
+                    <option value="EUR" data-iso-code="ESP">EUR - Euro - Spain</option>
+                    <option value="EUR" data-iso-code="VAT">EUR - Euro - Vatican City</option>
+                    <option value="FJD" data-iso-code="FJI">FJD - Fiji Dollar - Fiji</option>
+                    <option value="FKP" data-iso-code="FLK">FKP - Falkland Islands Pound - Falkland Islands</option>
+                    <option value="GBP" data-iso-code="GGY">GBP - Pound Sterling - Guernsey</option>
+                    <option value="GBP" data-iso-code="IMN">GBP - Pound Sterling - Isle of Man</option>
+                    <option value="GBP" data-iso-code="JEY">GBP - Pound Sterling - Jersey</option>
+                    <option value="GBP" data-iso-code="GBR">GBP - Pound Sterling - United Kingdom</option>
+                    <option value="GEL" data-iso-code="GEO">GEL - Lari - Georgia</option>
+                    <option value="GHS" data-iso-code="GHA">GHS - Cedi - Ghana</option>
+                    <option value="GIP" data-iso-code="GIB">GIP - Gibraltar Pound - Gibraltar</option>
+                    <option value="GMD" data-iso-code="GMB">GMD - Dalasi - Gambia</option>
+                    <option value="GNF" data-iso-code="GIN">GNF - Guinea Franc - Guinea</option>
+                    <option value="GTQ" data-iso-code="GTM">GTQ - Quetzal - Guatemala</option>
+                    <option value="GYD" data-iso-code="GUY">GYD - Guyana Dollar - Guyana</option>
+                    <option value="HKD" data-iso-code="HKG">HKD - Hong Kong Dollar - Hong Kong</option>
+                    <option value="HNL" data-iso-code="HND">HNL - Lempira - Honduras</option>
+                    <option value="HRK" data-iso-code="HRV">HRK - Croatian Kuna - Croatia</option>
+                    <option value="HTG" data-iso-code="HTI">HTG - Gourde - Haiti</option>
+                    <option value="HUF" data-iso-code="HUN">HUF - Forint - Hungary</option>
+                    <option value="IDR" data-iso-code="IDN">IDR - Rupiah - Indonesia</option>
+                    <option value="ILS" data-iso-code="ISR">ILS - New Israeli Sheqel - Israel</option>
+                    <option value="INR" data-iso-code="IND">INR - Indian Rupee - India</option>
+                    <option value="IQD" data-iso-code="IRQ">IQD - Iraqi Dinar - Iraq</option>
+                    <option value="IRR" data-iso-code="IRN">IRR - Iranian Rial - Iran</option>
+                    <option value="ISK" data-iso-code="ISL">ISK - Iceland Krona - Iceland</option>
+                    <option value="JMD" data-iso-code="JAM">JMD - Jamaican Dollar - Jamaica</option>
+                    <option value="JOD" data-iso-code="JOR">JOD - Jordanian Dinar - Jordan</option>
+                    <option value="JPY" data-iso-code="JPN">JPY - Yen - Japan</option>
+                    <option value="KES" data-iso-code="KEN">KES - Kenyan Shilling - Kenya</option>
+                    <option value="KGS" data-iso-code="KGZ">KGS - Som - Kyrgyzstan</option>
+                    <option value="KHR" data-iso-code="KHM">KHR - Riel - Cambodia</option>
+                    <option value="KMF" data-iso-code="COM">KMF - Comoro Franc - Comoros</option>
+                    <option value="KPW" data-iso-code="PRK">KPW - North Korean Won - North Korea</option>
+                    <option value="KRW" data-iso-code="KOR">KRW - Won - South Korea</option>
+                    <option value="KWD" data-iso-code="KWT">KWD - Kuwaiti Dinar - Kuwait</option>
+                    <option value="KYD" data-iso-code="CYM">KYD - Cayman Islands Dollar - Cayman Islands</option>
+                    <option value="KZT" data-iso-code="KAZ">KZT - Tenge - Kazakhstan</option>
+                    <option value="LAK" data-iso-code="LAO">LAK - Kip - Laos</option>
+                    <option value="LBP" data-iso-code="LBN">LBP - Lebanese Pound - Lebanon</option>
+                    <option value="LKR" data-iso-code="LKA">LKR - Sri Lanka Rupee - Sri Lanka</option>
+                    <option value="LRD" data-iso-code="LBR">LRD - Liberian Dollar - Liberia</option>
+                    <option value="LSL" data-iso-code="LSO">LSL - Loti - Lesotho</option>
+                    <option value="LTL" data-iso-code="LTU">LTL - Lithuanian Litas - Lithuania</option>
+                    <option value="LVL" data-iso-code="LVA">LVL - Latvian Lats - Latvia</option>
+                    <option value="LYD" data-iso-code="LBY">LYD - Libyan Dinar - Libya</option>
+                    <option value="MAD" data-iso-code="MAR">MAD - Moroccan Dirham - Morocco</option>
+                    <option value="MAD" data-iso-code="ESH">MAD - Moroccan dirham - Western Sahara</option>
+                    <option value="MDL" data-iso-code="MDA">MDL - Moldovan Leu - Moldova</option>
+                    <option value="MGA" data-iso-code="MDG">MGA - Malagasy Ariary - Madagascar</option>
+                    <option value="MKD" data-iso-code="MKD">MKD - Denar - Macedonia</option>
+                    <option value="MMK" data-iso-code="MMR">MMK - Kyat - Myanmar</option>
+                    <option value="MNT" data-iso-code="MNG">MNT - Tugrik - Mongolia</option>
+                    <option value="MOP" data-iso-code="MAC">MOP - Pataca - Macau</option>
+                    <option value="MRO" data-iso-code="MRT">MRO - Ouguiya - Mauritania</option>
+                    <option value="MUR" data-iso-code="MUS">MUR - Mauritius Rupee - Mauritius</option>
+                    <option value="MVR" data-iso-code="MDV">MVR - Rufiyaa - Maldives</option>
+                    <option value="MWK" data-iso-code="MWI">MWK - Kwacha - Malawi</option>
+                    <option value="MXN" data-iso-code="MEX">MXN - Mexican Peso - Mexico</option>
+                    <option value="MYR" data-iso-code="MYS">MYR - Malaysian Ringgit - Malaysia</option>
+                    <option value="MZN" data-iso-code="MOZ">MZN - Metical - Mozambique</option>
+                    <option value="NAD" data-iso-code="NAM">NAD - Namibia Dollar - Namibia</option>
+                    <option value="NGN" data-iso-code="NGA">NGN - Naira - Nigeria</option>
+                    <option value="NIO" data-iso-code="NIC">NIO - Cordoba Oro - Nicaragua</option>
+                    <option value="NOK" data-iso-code="NOR">NOK - Norwegian Krone - Norway</option>
+                    <option value="NOK" data-iso-code="SJM">NOK - Norway Kroner - Svalbard and Jan Mayen</option>
+                    <option value="NPR" data-iso-code="NPL">NPR - Nepalese Rupee - Nepal</option>
+                    <option value="NZD" data-iso-code="COK">NZD - New Zealand Dollar - Cook Islands</option>
+                    <option value="NZD" data-iso-code="NZL">NZD - New Zealand Dollar - New Zealand</option>
+                    <option value="NZD" data-iso-code="NIU">NZD - New Zealand Dollar - Niue</option>
+                    <option value="NZD" data-iso-code="PCN">NZD - New Zealand Dollar - Pitcairn</option>
+                    <option value="NZD" data-iso-code="TKL">NZD - New Zealand Dollar - Tokelau</option>
+                    <option value="OMR" data-iso-code="OMN">OMR - Rial Omani - Oman</option>
+                    <option value="PAB" data-iso-code="PAN">PAB - Balboa - Panama</option>
+                    <option value="PEN" data-iso-code="PER">PEN - Nuevo Sol - Peru</option>
+                    <option value="PGK" data-iso-code="PNG">PGK - Kina - Papua New Guinea</option>
+                    <option value="PHP" data-iso-code="PHL">PHP - Philippine Peso - Philippines</option>
+                    <option value="PKR" data-iso-code="PAK" selected>PKR - Pakistan Rupee - Pakistan</option>
+                    <option value="PLN" data-iso-code="POL">PLN - Zloty - Poland</option>
+                    <option value="PYG" data-iso-code="PRY">PYG - Guarani - Paraguay</option>
+                    <option value="QAR" data-iso-code="QAT">QAR - Qatari Rial - Qatar</option>
+                    <option value="RON" data-iso-code="ROU">RON - New Ley - Romania</option>
+                    <option value="RSD" data-iso-code="SRB">RSD - Serbian Dinar - Serbia</option>
+                    <option value="RUB" data-iso-code="RUS">RUB - Russian Ruble - Russia</option>
+                    <option value="RWF" data-iso-code="RWA">RWF - Rwanda Franc - Rwanda</option>
+                    <option value="SAR" data-iso-code="SAU">SAR - Saudi Riyal - Saudi Arabia</option>
+                    <option value="SBD" data-iso-code="SLB">SBD - Solomon Islans Dollar - Solomon Islands</option>
+                    <option value="SCR" data-iso-code="SYC">SCR - Seychelles Rupee - Seychelles</option>
+                    <option value="SDG" data-iso-code="SDN">SDG - Sudanese Pound - Sudan</option>
+                    <option value="SEK" data-iso-code="SWE">SEK - Swedish Krona - Sweden</option>
+                    <option value="SGD" data-iso-code="SGP">SGD - Singapore Dollar - Singapore</option>
+                    <option value="SHP" data-iso-code="SHN">SHP - Saint Helena Pound - Saint Helena</option>
+                    <option value="SLL" data-iso-code="SLE">SLL - Leone - Sierra Leone</option>
+                    <option value="SOS" data-iso-code="SOM">SOS - Somali Shilling - Somalia</option>
+                    <option value="SRD" data-iso-code="SUR">SRD - Surinamese Dollar - Suriname</option>
+                    <option value="STD" data-iso-code="STP">STD - Dobra - Sao Tome and Principe</option>
+                    <option value="SVC" data-iso-code="SLV">SVC - El Salvador Colon - El Salvador</option>
+                    <option value="SYP" data-iso-code="SYR">SYP - Syrian Pound - Syria</option>
+                    <option value="SZL" data-iso-code="SWZ">SZL - Lilangeni - Swaziland</option>
+                    <option value="THB" data-iso-code="THA">THB - Baht - Thailand</option>
+                    <option value="TJS" data-iso-code="TJK">TJS - Somoni - Tajikistan</option>
+                    <option value="TMT" data-iso-code="TKM">TMT - Manat - Turkmenistan</option>
+                    <option value="TND" data-iso-code="TUN">TND - Tunisian Dinar - Tunisia</option>
+                    <option value="TOP" data-iso-code="TON">TOP - Paanga - Tonga</option>
+                    <option value="TRY" data-iso-code="TUR">TRY - Turkish Lira - Turkey</option>
+                    <option value="TTD" data-iso-code="TTO">TTD - Trinidad and Tobago Dollar - Trinidad and Tobago
+                    </option>
+                    <option value="TWD" data-iso-code="TWN">TWD - New Taiwan Dollar - Taiwan</option>
+                    <option value="TZS" data-iso-code="TZA">TZS - Tanzanian Shilling - Tanzania</option>
+                    <option value="UAH" data-iso-code="UKR">UAH - Hryvnia - Ukraine</option>
+                    <option value="UGX" data-iso-code="UGA">UGX - Uganda Shilling - Uganda</option>
+                    <option value="USD" data-iso-code="ASM">USD - US Dollar - American Samoa</option>
+                    <option value="USD" data-iso-code="IOT">USD - US Dollar - British Indian Ocean Territory</option>
+                    <option value="USD" data-iso-code="VGB">USD - US Dollar - British Virgin Islands</option>
+                    <option value="USD" data-iso-code="TLS">USD - US Dollar - East Timor</option>
+                    <option value="USD" data-iso-code="ECU">USD - US Dollar - Ecuador</option>
+                    <option value="USD" data-iso-code="GUM">USD - US Dollar - Guam</option>
+                    <option value="USD" data-iso-code="MHL">USD - US Dollar - Marshall Islands</option>
+                    <option value="USD" data-iso-code="FSM">USD - US Dollar - Micronesia</option>
+                    <option value="USD" data-iso-code="MNP">USD - US Dollar - Northern Mariana Islands</option>
+                    <option value="USD" data-iso-code="PLW">USD - US Dollar - Palau</option>
+                    <option value="USD" data-iso-code="PRI">USD - US Dollar - Puerto Rico</option>
+                    <option value="USD" data-iso-code="TCA">USD - US Dollar - Turks and Caicos Islands</option>
+                    <option value="USD" data-iso-code="VIR">USD - US Dollar - U.S. Virgin Islands</option>
+                    <option value="USD" data-iso-code="USA">USD - US Dollar - United States</option>
+                    <option value="UYU" data-iso-code="URY">UYU - Peso Uruguayo - Uruguay</option>
+                    <option value="UZS" data-iso-code="UZB">UZS - Uzbekistan Sum - Uzbekistan</option>
+                    <option value="VEF" data-iso-code="VEN">VEF - Bolivar - Venezuela</option>
+                    <option value="VND" data-iso-code="VNM">VND - Dong - Vietnam</option>
+                    <option value="VUV" data-iso-code="VUT">VUV - Vatu - Vanuatu</option>
+                    <option value="WST" data-iso-code="WSM">WST - Tala - Samoa</option>
+                    <option value="XAF" data-iso-code="CMR">XAF - CFA Franc BEAC - Cameroon</option>
+                    <option value="XAF" data-iso-code="CAF">XAF - CFA Franc BEAC - Central African Republic</option>
+                    <option value="XAF" data-iso-code="TCD">XAF - CFA Franc BEAC - Chad</option>
+                    <option value="XAF" data-iso-code="GNQ">XAF - CFA Franc BEAC - Equatorial Guinea</option>
+                    <option value="XAF" data-iso-code="GAB">XAF - CFA Franc BEAC - Gabon</option>
+                    <option value="XAF" data-iso-code="COG">XAF - CFA Franc BEAC - Republic of the Congo</option>
+                    <option value="XCD" data-iso-code="AIA">XCD - East Caribbean Dollar - Anguilla</option>
+                    <option value="XCD" data-iso-code="ATG">XCD - East Caribbean Dollar - Antigua and Barbuda</option>
+                    <option value="XCD" data-iso-code="DMA">XCD - East Caribbean Dollar - Dominica</option>
+                    <option value="XCD" data-iso-code="GRD">XCD - East Caribbean Dollar - Grenada</option>
+                    <option value="XCD" data-iso-code="MSR">XCD - East Caribbean Dollar - Montserrat</option>
+                    <option value="XCD" data-iso-code="KNA">XCD - East Caribbean Dollar - Saint Kitts and Nevis</option>
+                    <option value="XCD" data-iso-code="LCA">XCD - East Caribbean Dollar - Saint Lucia</option>
+                    <option value="XCD" data-iso-code="VCT">XCD - East Caribbean Dollar - Saint Vincent and the
+                        Grenadines</option>
+                    <option value="XOF" data-iso-code="BEN">XOF - CFA Franc BCEAO - Benin</option>
+                    <option value="XOF" data-iso-code="BFA">XOF - CFA Franc BCEAO - Burkina Faso</option>
+                    <option value="XOF" data-iso-code="GNB">XOF - CFA Franc BCEAO - Guinea-Bissau</option>
+                    <option value="XOF" data-iso-code="CIV">XOF - CFA Franc BCEAO - Ivory Coast</option>
+                    <option value="XOF" data-iso-code="MLI">XOF - CFA Franc BCEAO - Mali</option>
+                    <option value="XOF" data-iso-code="NER">XOF - CFA Franc BCEAO - Niger</option>
+                    <option value="XOF" data-iso-code="SEN">XOF - CFA Franc BCEAO - Senegal</option>
+                    <option value="XOF" data-iso-code="TGO">XOF - CFA Franc BCEAO - Togo</option>
+                    <option value="XPF" data-iso-code="PYF">XPF - CFP Franc - French Polynesia</option>
+                    <option value="XPF" data-iso-code="NCL">XPF - CFP Franc - New Caledonia</option>
+                    <option value="XPF" data-iso-code="WLF">XPF - CFP Franc - Wallis and Futuna</option>
+                    <option value="YER" data-iso-code="YEM">YER - Yemeni Rial - Yemen</option>
+                    <option value="ZAR" data-iso-code="ZAF">ZAR - Rand - South Africa</option>
+                    <option value="ZMW" data-iso-code="ZMB">ZMW - Zambian Kwacha - Zambia</option>
+                    <option value="ZWL" data-iso-code="ZWE">ZWL - Zimbabwe Dollar - Zimbabwe</option>
+                </select>
+                <input type="text" id="target-currency-amount" placeholder="0" disabled>
+            </div>
+            <button class="reset" id="reset">Reset</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <!-- <script src="./countries.js"></script> -->
+</body>
+
+</html>
