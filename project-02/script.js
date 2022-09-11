@@ -30,6 +30,11 @@ const updateAllData = async (sourceCurrAmount, sourceCurr, tarCurr) => {
     currentSourceCurrency = sourceCurr;
     currentTargetCurrency = tarCurr;
 
+    const sourceCountryIsoCode = sourceCurrency.options[sourceCurrency.selectedIndex].getAttribute('data-iso-code');
+    sourceFlag.src = `https://countryflagsapi.com/svg/${sourceCountryIsoCode}`;
+    const targetCountryIsoCode = targetCurrency.options[targetCurrency.selectedIndex].getAttribute('data-iso-code');
+    targetFlag.src = `https://countryflagsapi.com/svg/${targetCountryIsoCode}`;
+
     try {
         const response = await fetch(`https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert?from=${sourceCurr}&to=${tarCurr}&amount=1`, {
             method: 'GET',
@@ -51,7 +56,7 @@ const updateAllData = async (sourceCurrAmount, sourceCurr, tarCurr) => {
 
 // 2 - Function to update target currency amount
 const updateTargetCurrencyAmount = (currenctSourceCurrencyAmount) => {
-    console.log(currentTargetCurrencyRate, currenctSourceCurrencyAmount);
+    // console.log(currentTargetCurrencyRate, currenctSourceCurrencyAmount);
     targetCurrencyAmount.value = (currentTargetCurrencyRate * currenctSourceCurrencyAmount).toFixed(3);
 };
 
@@ -68,8 +73,6 @@ const updateCurrenctRateInstruction = () => {
 // 1 - Event Listener - to change source currency
 sourceCurrency.addEventListener('change', e => {
     currentSourceCurrency = e.target.value;
-    console.log(e.target.getAttribute('data-iso-code'));
-    // sourceFlag.src = `https://countryflagsapi.com/svg/${currentSourceCurrency}`
     updateAllData(currenctSourceCurrencyAmount, currentSourceCurrency, currentTargetCurrency);
 });
 // 2 - Event Listener - to change target currency
@@ -87,10 +90,31 @@ swapButton.addEventListener('click', e => {
     let temp = currentSourceCurrency;
     currentSourceCurrency = currentTargetCurrency;
     currentTargetCurrency = temp;
-    sourceCurrency.value = currentSourceCurrency;
-    targetCurrency.value = currentTargetCurrency;
+
+    const sourceCurrIndex = sourceCurrency.selectedIndex;
+    const targetCurrIndex = targetCurrency.selectedIndex;
+    sourceCurrency.options[targetCurrIndex].selected = true;
+    targetCurrency.options[sourceCurrIndex].selected = true;
+
     updateAllData(currenctSourceCurrencyAmount, currentSourceCurrency, currentTargetCurrency);
 });
+// 5 - Event Listener - to reset 
+resetButton.addEventListener('click', e => {
+    currentSourceCurrency = 'USD';
+    currentTargetCurrency = 'PKR';
+    currentTargetCurrencyRate = 0;
+    currenctSourceCurrencyAmount = 1;
+    currenctTargetCurrencyAmount = 0;
+    
+    const sourceCurrIndex = 200;
+    const targetCurrIndex = 154;
+    sourceCurrency.options[sourceCurrIndex].selected = true;
+    targetCurrency.options[targetCurrIndex].selected = true;
+
+    sourceCurrencyAmount.value = '';
+
+    updateAllData(currenctSourceCurrencyAmount, currentSourceCurrency, currentTargetCurrency)
+})
 
 // Init
 updateAllData(1, currentSourceCurrency, currentTargetCurrency);
