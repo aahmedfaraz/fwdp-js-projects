@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+body>h1 {
+    font-size: 50px;
+    color: dodgerblue;
+}
+
+.navigation {
+    display: flex;
+    gap: 20px;
+    background-color: rgb(235, 245, 255);
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.navigation>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.navigation>div>i {
+    font-size: 30px;
+}
+
+.navigation>div>h2 {
+    font-size: 20px;
+    font-weight: unset;
+}
+
+.navigation>div:nth-child(1) {
+    color: limegreen;
+}
+
+.navigation>div:nth-child(2) {
+    color: tomato;
+}
+
+.navigation>div.disable {
+    opacity: 0.2;
+}
+
+.message {
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: dodgerblue;
+    min-width: 250px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.box {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(225, 240, 255);
+    border-radius: 5px;
+    border: 2px solid rgb(151, 203, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box i {
+    font-size: 30px;
+}
+
+.box.win {
+    border-color: dodgerblue;
+}
+
+.box:not(.checked):hover {
+    background-color: rgb(203, 229, 255);
+}
+
+.limegreen {
+    color: limegreen;
+}
+
+.tomato {
+    color: tomato;
+}
