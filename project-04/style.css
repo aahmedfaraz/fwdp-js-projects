@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(250, 250, 250);
+}
+
+nav {
+    background-color: rgb(85, 18, 242);
+    color: white;
+    border-bottom: 2px solid black;
+    padding: 20px;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    max-width: 100%;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(226, 226, 226);
+    gap: 10px;
+}
+
+form .form-control {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+form .form-control input {
+    padding: 5px;
+}
+
+form .controls {
+    align-self: flex-end;
+}
+
+.btn {
+    cursor: pointer;
+    padding: 5px 30px;
+    border: 0;
+    background: linear-gradient(to bottom, gray, black);
+    color: white;
+    border-radius: 5px;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.form-add-btn {
+    background: linear-gradient(to bottom, lime, green);
+}
+
+.form-update-btn {
+    background: linear-gradient(to bottom, dodgerblue, rgb(0, 81, 161));
+}
+
+.item-update-btn {
+    background: linear-gradient(to bottom, dodgerblue, rgb(0, 81, 161));
+    padding: 5px 10px;
+}
+
+.item-delete-btn {
+    background: linear-gradient(to bottom, tomato, red);
+    padding: 5px 10px;
+}
+
+/* Add Form */
+form.add .form-add-btn {
+    display: inline;
+}
+
+form.add .form-update-btn {
+    display: none;
+}
+
+form.add .form-cancel-btn {
+    display: none;
+}
+
+/* Form Update */
+form.update .form-add-btn {
+    display: none;
+}
+
+form.update .form-update-btn {
+    display: inline;
+}
+
+form.update .form-cancel-btn {
+    display: inline;
+}
+
+.heading {
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+}
+
+.all-tasks-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.all-tasks-list .task-item {
+    cursor: pointer;
+    background-color: rgb(222, 240, 255);
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-right: 30px;
+}
+
+.all-tasks-list .task-item .details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.all-tasks-list .task-item .details p {
+    text-align: justify;
+}
+
+.hovered {
+    border: 2px dashed black;
+}

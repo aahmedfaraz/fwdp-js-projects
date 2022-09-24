@@ -5,11 +5,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Todo App</title>
 </head>
 
 <body>
-
+    <!-- Navbar -->
+    <nav>
+        <h1>Todo App</h1>
+    </nav>
+    <!-- Main -->
+    <main>
+        <!-- Form -->
+        <form class="add" id="form">
+            <h2 id="form-heading">Add your task</h2>
+            <div class="form-control">
+                <label for="task-input">Task</label>
+                <input type="text" name="task" id="task-input" placeholder="Please enter your task">
+            </div>
+            <div class="controls">
+                <input type="submit" data-type="add" class="btn form-add-btn" id="form-add-btn" value="Add">
+                <input type="submit" data-type="update" class="btn form-update-btn" id="form-update-btn" value="Update">
+                <input type="reset" class="btn form-cancel-btn" id="form-cancel-btn" value="Cancel">
+            </div>
+        </form>
+        <!-- Todo Container -->
+        <div class="container">
+            <h1 class="heading">All Tasks</h1>
+            <ul class="all-tasks-list" id="all-tasks-list">
+                <p>No task todo.</p>
+                <!-- <li class="task-item" data-index="" draggable="true">
+                    <div class="details">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, adipisci.</p>
+                        <div class="controls">
+                            <button class="btn item-update-btn" data-index="">Update</button>
+                            <button class="btn item-delete-btn" data-index="">Delete</button>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-grip-lines"></i>
+                </li>
+                <li class="task-item" data-index="" draggable="true">
+                    <div class="details">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea distinctio rerum nesciunt atque
+                            odit quod nostrum porro aspernatur sunt itaque.</p>
+                        <div class="controls">
+                            <button class="btn item-update-btn" data-index="">Update</button>
+                            <button class="btn item-delete-btn" data-index="">Delete</button>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-grip-lines"></i>
+                </li> -->
+            </ul>
+        </div>
+    </main>
+    <script src="./script.js"></script>
 </body>
 
 </html>
