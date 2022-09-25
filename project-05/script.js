@@ -95,10 +95,10 @@ swapButton.addEventListener('click', swapLanguages);
 // 5 - Event listener to copy target language text to clipboard
 copyToClipboardButton.addEventListener('click', () => {
     const targetText = targetLanguageText.value.trim();
-    navigator.clipboard.writeText(targetText);
-    if(navigator.clipboard == undefined) {
+    try {
+        navigator.clipboard.writeText(targetText);
+        alert('Your text has been copied to clipboard.');
+    } catch (err) {
         alert('Sorry, copy to clipboard is not supported here.')
-        return;
     }
-    alert('Your text has been copied to clipboard.')
 });
