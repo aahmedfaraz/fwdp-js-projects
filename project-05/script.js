@@ -96,5 +96,9 @@ swapButton.addEventListener('click', swapLanguages);
 copyToClipboardButton.addEventListener('click', () => {
     const targetText = targetLanguageText.value.trim();
     navigator.clipboard.writeText(targetText);
+    if(navigator.clipboard == undefined) {
+        alert('Sorry, copy to clipboard is not supported here.')
+        return;
+    }
     alert('Your text has been copied to clipboard.')
 });
