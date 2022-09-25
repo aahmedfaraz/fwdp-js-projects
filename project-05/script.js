@@ -42,7 +42,7 @@ const translate = async () => {
     	headers: {
             'content-type': 'application/x-www-form-urlencoded',
             'Accept-Encoding': 'application/gzip',
-            'X-RapidAPI-Key': '8b5cf0cbc9msh6cca032b7ca4205p17c0cejsnbb20bcf59615',
+            'X-RapidAPI-Key': 'a2366fa114mshb36008fe0f6c963p139858jsn4a096faee1bf',
             'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
     	},
     	body: encodedParams
