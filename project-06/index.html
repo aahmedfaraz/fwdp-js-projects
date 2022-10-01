@@ -5,11 +5,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Game: Fast Typing Game</title>
 </head>
 
 <body>
+    <main id="main" class="home">
+        <h1>Fast Typing Game</h1>
+        <!-- Home Screen -->
+        <section id="home-screen" class="home-screen">
+            <button class="start btn" id="start">Start</button>
+            <fieldset>
+                <legend>Settings</legend>
+                <div class="form-control">
+                    <label for="difficulty">Difficulty</label>
+                    <div id="difficulty">
+                        <input type="radio" name="difficulty" id="easy" value="easy" checked> Easy
+                        <input type="radio" name="difficulty" id="medium" value="medium"> Medium
+                        <input type="radio" name="difficulty" id="hard" value="hard"> Hard
+                    </div>
+                </div>
+            </fieldset>
+            <div class="info">
+                <h2>Info</h2>
+                <p>Since you have choosen difficulty level <span id="info-level">Easy</span>.</p>
+                <p>So, you will have Time <span id="info-time">15s</span>, and Bonus <span id="info-bonus">+5s</span> on
+                    every success.
+                </p>
+            </div>
+        </section>
 
+        <!-- Game Screen -->
+        <section id="game-screen" class="game-screen">
+            <h2>Level: <span id="game-level">Easy</span></h2>
+            <div class="data">
+                <p>Score: <span id="game-score">0</span></p>
+                <p>Time: <span id="game-time">15s</span></p>
+            </div>
+            <small>Type the word shown below</small>
+            <h1 id="word" class="word">JavaScript</h1>
+            <input type="text" id="input" placeholder="Type Here">
+        </section>
+
+        <!-- Result Screen -->
+        <section id="result-screen" class="result-screen">
+            <p><b>Game Over!</b> You ran out of time.</p>
+            <h2>In Level <span id="result-level">Easy</span></h2>
+            <p>Your Score is <span id="result-score">0</span></p>
+            <button class="home btn" id="home">Home</button>
+        </section>
+    </main>
+    <script src="./script.js"></script>
 </body>
 
 </html>
