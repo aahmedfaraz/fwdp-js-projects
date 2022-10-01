@@ -81,6 +81,7 @@ startBtn.addEventListener('click', e => {
     generateRandomWords();
     mainDOM.className = 'game';
     gameStarted = true;
+    inputDOM.focus();
 });
 
 // 3 - Event Listener to track user's typing
@@ -103,6 +104,7 @@ homeBtn.addEventListener('click', e => {
     gameStarted = false;
     gameScore = 0;
     currentWord = null;
+    inputDOM.value = "";
     document.getElementById('easy').checked = 'true';
     updateInfoDOM();
     updateGameDOM();
