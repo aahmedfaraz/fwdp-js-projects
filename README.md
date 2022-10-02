@@ -8,3 +8,4 @@
 - [Project 04 - ***Advanced Todo App***](http://fwdp-jsprojects.surge.sh/project-04/index.html)
 - [Project 05 - ***Google Translator***](http://fwdp-jsprojects.surge.sh/project-05/index.html)
 - [Project 06 - ***Game: Fast Typing Game***](http://fwdp-jsprojects.surge.sh/project-06/index.html)
+- [Project 07 - ***Custom Video Player***](http://fwdp-jsprojects.surge.sh/project-07/index.html)
