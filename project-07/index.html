@@ -5,11 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./progress.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Custom Video Player</title>
 </head>
 
 <body>
-
+    <h1>Custom Video Player</h1>
+    <main>
+        <video src="./assets/videos/SpaceX Falcon Heavy- Elon Musk's Engineering Masterpiece.mp4" class="video"
+            id="video" width="800px">
+            Your browser does not support video tag.
+        </video>
+        <div class="controls">
+            <button class="btn" id="play-pause"><i class="fa-solid fa-circle-play"></i></button>
+            <!-- <button class="btn"><i class="fa-solid fa-circle-pause"></i></button> -->
+            <button class="btn" id="stop"><i class="fa-solid fa-circle-stop"></i></button>
+            <p class="timestamp" id="current-time">00:00</p>
+            <input type="range" id="progress" name="progress" min="0" max="100" step="0.1" value="0">
+            <p class="timestamp" id="total-time">00:00</p>
+            <!-- <button class="btn"><i class="fa-solid fa-volume-xmark"></i></button> -->
+            <button class="btn" id="volume"><i class="fa-solid fa-volume-low"></i></button>
+            <!-- <button class="btn"><i class="fa-solid fa-volume-high"></i></button> -->
+            <button class="btn" id="full-screen"><i class="fa-solid fa-expand"></i></button>
+            <!-- <button class="btn"><i class="fa-solid fa-compress"></i></button> -->
+        </div>
+        <button class="btn screen-btn show" id="screen-btn"><i class="fa-solid fa-circle-play"></i></button>
+    </main>
+    <script src="./script.js"></script>
 </body>
 
 </html>
