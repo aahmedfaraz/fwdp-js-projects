@@ -8,6 +8,7 @@ const fullScreenIcon = document.getElementById('full-screen');
 const currentTimeDOM = document.getElementById('current-time');
 const totalTimeDOM = document.getElementById('total-time');
 const progressDOM = document.getElementById('progress');
+const mainDOM = document.getElementById('main');
 
 // All Required Variables
 let volumeValue = 0.5;
@@ -66,31 +67,31 @@ const stopVideo = () => {
 // 6 - Function to toggle full screen
 const toggleFullScreen = () => {
     if(!videoOnFullScreen) {
-        if (video.requestFullscreen) {
-            video.requestFullscreen();
+        if (main.requestFullscreen) {
+            main.requestFullscreen();
             
             changeButtonIcon(fullScreenIcon, 'fa-solid fa-compress');
             videoOnFullScreen = true;
-        } else if (video.webkitRequestFullscreen) { /* Safari */
-            video.webkitRequestFullscreen();
+        } else if (main.webkitRequestFullscreen) { /* Safari */
+            main.webkitRequestFullscreen();
             changeButtonIcon(fullScreenIcon, 'fa-solid fa-compress');
             videoOnFullScreen = true;
-        } else if (video.msRequestFullscreen) { /* IE11 */
-            video.msRequestFullscreen();
+        } else if (main.msRequestFullscreen) { /* IE11 */
+            main.msRequestFullscreen();
             changeButtonIcon(fullScreenIcon, 'fa-solid fa-compress');
             videoOnFullScreen = true;
         }
     } else {
-        if (video.exitFullScreen) {
-            video.exitFullScreen();
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
             changeButtonIcon(fullScreenIcon, 'fa-solid fa-expand');
             videoOnFullScreen = false;
-        } else if (video.webkitExitFullScreen) { /* Safari */
-            video.webkitExitFullScreen();
+        } else if (document.webkitExitFullscreen) { /* Safari */
+            document.webkitExitFullscreen();
             changeButtonIcon(fullScreenIcon, 'fa-solid fa-expand');
             videoOnFullScreen = false;
-        } else if (video.msExitFullScreen) { /* IE11 */
-            video.msExitFullScreen();
+        } else if (document.msExitFullscreen) { /* IE11 */
+            document.msExitFullscreen();
             changeButtonIcon(fullScreenIcon, 'fa-solid fa-expand');
             videoOnFullScreen = false;
         }

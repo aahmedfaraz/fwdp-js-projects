@@ -22,6 +22,12 @@ body>h1 {
 
 main {
     position: relative;
+    width: 800px;
+    max-width: 100%;
+}
+
+main video {
+    width: 100%;
 }
 
 .controls {
