@@ -18,7 +18,7 @@ body {
 }
 
 form {
-    position: absolute;
+    position: fixed;
     background-color: white;
     top: -100%;
     display: flex;
