@@ -42,7 +42,7 @@ const translate = async () => {
     	headers: {
             'content-type': 'application/x-www-form-urlencoded',
             'Accept-Encoding': 'application/gzip',
-            'X-RapidAPI-Key': 'a2366fa114mshb36008fe0f6c963p139858jsn4a096faee1bf',
+            'X-RapidAPI-Key': '32c46c27f2mshbeb5e974f89bfddp1c56d6jsn6a1a54633de7',
             'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
     	},
     	body: encodedParams
@@ -52,7 +52,11 @@ const translate = async () => {
         // Get Translation
         const res = await fetch('https://google-translate1.p.rapidapi.com/language/translate/v2', options);
         const data = await res.json();
-        targetLanguageText.value = data.data.translations[0].translatedText;
+        if(!data.message) {
+            targetLanguageText.value = data.data.translations[0].translatedText;
+        } else {
+            alert(data.message);
+        }
     } catch (err) {
         // Error
         alert('Sorry, Something went wrong.');
