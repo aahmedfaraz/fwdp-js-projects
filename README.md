@@ -10,3 +10,4 @@
 - [Project 06 - ***Game: Fast Typing Game***](http://fwdp-jsprojects.surge.sh/project-06/index.html)
 - [Project 07 - ***Custom Video Player***](http://fwdp-jsprojects.surge.sh/project-07/index.html)
 - [Project 08 - ***Web Speech API***](http://fwdp-jsprojects.surge.sh/project-08/index.html)
+- [Project 09 - ***Custom Music Player***](http://fwdp-jsprojects.surge.sh/project-09/index.html)
