@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 50px;
+    color: rgb(50, 50, 50);
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.board .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.box {
+    width: 35px;
+    height: 35px;
+    background-color: rgb(175, 255, 247);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: transparent;
+    font-size: 12px;
+}
+
+.row:nth-of-type(even) .box:nth-of-type(even) {
+    background-color: rgb(114, 234, 222);
+}
+
+.row:nth-of-type(odd) .box:nth-of-type(odd) {
+    background-color: rgb(114, 234, 222);
+}
+
+.snake-body {
+    background-color: dodgerblue !important;
+}
+
+.kill {
+    background-color: tomato !important;
+}
+
+.food {
+    background-color: rgb(83, 83, 83) !important;
+}
